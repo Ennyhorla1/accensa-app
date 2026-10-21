@@ -157,7 +157,11 @@ describe('POST /api/anchor/record', () => {
     const first = await post(body);
     const second = await post(body);
 
-    expect(await first.json()).toMatchObject({ success: true, batchId: body.batchId, alreadyRecorded: false });
+    expect(await first.json()).toMatchObject({
+      success: true,
+      batchId: body.batchId,
+      alreadyRecorded: false,
+    });
     expect(await second.json()).toMatchObject({
       success: true,
       batchId: body.batchId,
